@@ -1,0 +1,86 @@
+<!-- <p>edit-product works!</p> -->
+
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <b>
+        <a
+          style="color: black"
+          routerLink="/add-product"
+          routerLinkActive="active"
+          class="nav-link"
+        >
+          add-product</a
+        ></b
+      >
+    </li>
+
+    <li class="nav-item">
+      <b>
+        <a
+          style="color: black"
+          routerLink="/list-product"
+          routerLinkActive="active"
+          class="nav-link"
+        >
+          list-product</a
+        ></b
+      >
+    </li>
+
+    <li class="nav-item">
+      <b>
+        <a
+          style="color: red"
+          routerLink="/dashboard/logout"
+          routerLinkActive="active"
+          class="nav-link"
+        >
+          LogOut</a
+        ></b
+      >
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <form (ngSubmit)="onSumit()">
+    <div class="form-group col-md-4 md-3">
+      <label for="productname">Product Name</label>
+      <input
+        type="text"
+        name="productname"
+        class="form-control"
+        id="productname"
+        placeholder="Enter productname"
+        [(ngModel)]="product.productname"
+      />
+    </div>
+
+    <div class="form-group col-md-4 md-3">
+      <label for="productdescription">Product Description</label>
+      <input
+        type="text"
+        name="productdescription"
+        class="form-control"
+        id="productdescription"
+        placeholder="Enter Product Description"
+        [(ngModel)]="product.productdescription"
+      />
+    </div>
+
+    <div class="form-group col-md-4 md-3">
+      <label for="price">price </label>
+      <input
+        type="price"
+        name="price"
+        class="form-control"
+        id="price"
+        placeholder="Enter price"
+        [(ngModel)]="product.price"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update product</button>
+  </form>
+</div>

@@ -1,0 +1,129 @@
+<!-- <p>add-product works!</p> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+      <ul class="navbar-nav">
+        <!-- 
+            <li class="nav-item"> <b> <a style="color: black;" routerLink="/add-employee" routerLinkActive="active"
+                        class="nav-link"> add-employee</a></b></li> -->
+
+        <li class="nav-item">
+          <b>
+            <a
+              style="color: black"
+              routerLink="/list-product"
+              routerLinkActive="active"
+              class="nav-link"
+            >
+              list-product</a
+            ></b
+          >
+        </li>
+
+        <li class="nav-item">
+          <b>
+            <a
+              style="color: brown"
+              routerLink="/dashboard/logout"
+              routerLinkActive="active"
+              class="nav-link"
+            >
+              LogOut</a
+            ></b
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <br /><br /><br />
+
+    <div class="container">
+      <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm)">
+        <h1>Add Products</h1>
+        <div class="form-group col-md-4 md-3">
+          <label for="productname">productName</label>
+          <input
+            type="text"
+            name="Product Name"
+            id="productname"
+            #productname="ngModel"
+            required
+            class="form-control"
+            placeholder="Enter Product Name"
+            [(ngModel)]="product.productname"
+          />
+
+          <div *ngIf="productname.touched && productname.invalid">
+            <div
+              class="alert alert-danger"
+              *ngIf="productname.errors?.['required']"
+            >
+            Product Name is required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 md-3">
+          <label for="productdescription">ProductDescription</label>
+          <input
+            type="text"
+            name="productdescription"
+            id="productdescription"
+            #productdescription="ngModel"
+            required
+            class="form-control"
+            placeholder="Enter Product Description"
+            [(ngModel)]="product.productdescription"
+
+          />
+
+          <div *ngIf="productdescription.touched && productdescription.invalid">
+            <div
+              class="alert alert-danger"
+              *ngIf="productdescription.errors?.['required']"
+            >
+            Product Description is required
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 md-3">
+          <label for="price">Price</label>
+          <input
+            type="text"
+            name="price"
+            id="price"
+            #price="ngModel"
+            required
+            class="form-control"
+            placeholder="Enter price"
+            [(ngModel)]="product.price"
+          />
+
+          <div *ngIf="price.touched && price.invalid">
+            <div class="alert alert-danger" *ngIf="price.errors?.['required']">
+                Price is required
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button
+            [disabled]="!addForm.valid"
+            type="submit"
+            class="btn btn-primary"
+          >
+            Add Product
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
